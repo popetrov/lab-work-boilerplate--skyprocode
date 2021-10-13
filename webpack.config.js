@@ -4,6 +4,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
+	mode: 'development',
 	entry: './src/index.js',
 	module: {
 		rules: [
@@ -13,13 +14,14 @@ module.exports = {
 				exclude: /node_modules/,
 			},
 			{
-				test: /\.s[ac]ss$/i,
+				test: /\.styl$/,
 				use: [
 					MiniCssExtractPlugin.loader,
+					'style-loader',
 					// Translates CSS into CommonJS
 					'css-loader',
-					// Compiles Sass to CSS
-					'sass-loader',
+
+					'stylus-loader',
 				],
 			},
 			{
@@ -42,6 +44,7 @@ module.exports = {
 	output: {
 		path: path.resolve(__dirname, 'dist'),
 		filename: 'main.js',
+		clean: true,
 	},
 	plugins: [
 		new MiniCssExtractPlugin(),

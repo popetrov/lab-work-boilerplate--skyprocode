@@ -1,5 +1,5 @@
 {
-  "name": "labwork-boilerplate",
+  "name": "labwork-boilerplate-skyprocode",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
@@ -7,7 +7,7 @@
     "start": "webpack serve",
     "build": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "stylelint src/**/*.sass && eslint ./src/",
+    "lint": "stylelint src/**/*.styl && eslint ./src/",
     "style:lint": "stylelint src/**/*.sass",
     "style:fix": "stylelint src/**/*.sass --fix",
     "js:lint": "eslint ./src/js",
@@ -31,15 +31,18 @@
     "html-webpack-plugin": "^5.3.2",
     "husky": "^7.0.2",
     "mini-css-extract-plugin": "^2.4.2",
-    "sass": "^1.42.1",
-    "sass-loader": "^12.1.0",
     "style-loader": "^3.3.0",
     "stylelint": "^13.13.1",
     "stylelint-config-standard": "^22.0.0",
+    "stylus": "^0.55.0",
+    "stylus-loader": "^6.2.0",
     "ts-loader": "^9.2.6",
     "typescript": "^4.4.3",
     "webpack": "^5.58.1",
     "webpack-cli": "^4.9.0",
     "webpack-dev-server": "^4.3.1"
+  },
+  "dependencies": {
+    "vue-codeditor": "^1.0.5"
   }
 }
