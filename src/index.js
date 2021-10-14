@@ -1,10 +1,12 @@
 import { SkyProCode } from './components/skyproCode/skyprocode';
-import './index.styl';
-import Vue from 'vue';
-import App from './App.vue';
-import vueCodeditor from 'vue-codeditor';
 
-Vue.component(vueCodeditor);
+import './index.styl';
+import * as monaco from 'monaco-editor';
+
+monaco.editor.create(document.querySelector('.app'), {
+	value: ['const pasha = ', '"I like Skypro"', ''].join(''),
+	language: 'javascript',
+});
 
 const app = document.querySelector('.app');
 

@@ -2,12 +2,21 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
 
 module.exports = {
 	mode: 'development',
 	entry: './src/index.js',
 	module: {
 		rules: [
+			{
+				test: /\.(png|jpe?g|gif)$/i,
+				use: [
+					{
+						loader: 'file-loader',
+					},
+				],
+			},
 			{
 				test: /\.tsx?$/,
 				use: 'ts-loader',
@@ -17,7 +26,6 @@ module.exports = {
 				test: /\.styl$/,
 				use: [
 					MiniCssExtractPlugin.loader,
-					'style-loader',
 					// Translates CSS into CommonJS
 					'css-loader',
 
@@ -36,6 +44,10 @@ module.exports = {
 				test: /\.html$/i,
 				loader: 'html-loader',
 			},
+			{
+				test: /\.ttf$/,
+				use: ['file-loader'],
+			},
 		],
 	},
 	resolve: {
@@ -47,6 +59,7 @@ module.exports = {
 		clean: true,
 	},
 	plugins: [
+		new MonacoWebpackPlugin(),
 		new MiniCssExtractPlugin(),
 		new CleanWebpackPlugin(),
 		new HtmlWebpackPlugin({
